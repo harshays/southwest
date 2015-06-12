@@ -1,6 +1,5 @@
 import datetime as dt
 import selenium
-#from selenium import webdriver
 import selenium.webdriver.common
 import time
 import re

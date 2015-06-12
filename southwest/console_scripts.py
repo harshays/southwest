@@ -1,25 +1,7 @@
 from southwest import SouthwestCheckIn
 from multiple_check_ins import MultipleSouthwestCheckIns
 from single_check_in import SingleSouthwestCheckIn
-from utils import caffienate, get_single_args, get_multiple_args
-import selenium
-import time
-import os
-import threading
-from functools import wraps
-
-def _caffeinate():
-	os.system('caffeinate')
-
-def caffeinate(fn):
-	@wraps(fn)
-	def wrapper(*args, **kwargs):
-		thrd = threading.Thread(target = _caffeinate, args = ())
-		# 'service' thread. does not stop process from terminating.
-		thrd.daemon = True
-		thrd.start()
-		fn(*args, **kwargs)
-	return wrapper
+from utils import caffeinate, get_single_args, get_multiple_args
 
 @caffeinate
 def southwest_check_ins():

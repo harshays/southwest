@@ -1,14 +1,20 @@
-from functools import wraps
-import subprocess
-import argparse
+import os, argparse
 import datetime as dt
+import threading
+from functools import wraps
 
-def caffienate(fn):
-	@wraps(fn)
-	def caffienate_wrapper(*args, **kwargs):
-		subprocess.Popen('caffienate', shell=True)
-		fn(*args, **kwargs)
-	return caffienate_wrapper
+def _caffeinate():
+    os.system('caffeinate')
+
+def caffeinate(fn):
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        thrd = threading.Thread(target = _caffeinate, args = ())
+        # 'service' thread. does not stop process from terminating.
+        thrd.daemon = True
+        thrd.start()
+        fn(*args, **kwargs)
+    return wrapper
 
 def get_single_args():
     parser = argparse.ArgumentParser(description = "CLI for single southwest check-in")
@@ -17,7 +23,7 @@ def get_single_args():
     parser.add_argument('code', help = "southwest code")
     parser.add_argument('-d', '--date', help = "date (format is mm/dd/yyyy, default is today's date)", default = dt.datetime.now())
     parser.add_argument('-t', '--time', help = "time (format is hh:mm, default is current time)", default = dt.datetime.now())
-    
+
     args = parser.parse_args()
 
     if isinstance(args.date, dt.datetime):
@@ -35,14 +41,7 @@ def get_multiple_args():
     return args
 
 if __name__ == '__main__':
-    #s_args = get_single_args()
-    #m_args = get_multiple_args()
-
-    @caffienate
-    def test():
-        print "testing caffienate"
-
-    test()
+    pass
 
 
 

@@ -1,6 +1,5 @@
 from setuptools import setup
 
-
 setup(name='southwest',
     version='0.2',
     description='Schedule southwest check in(s)',
@@ -17,4 +16,4 @@ setup(name='southwest',
           'southwest.checkins=southwest.console_scripts:southwest_check_ins']
     }
 )
-       
+
