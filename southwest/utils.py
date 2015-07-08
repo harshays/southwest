@@ -1,4 +1,4 @@
-import os, argparse
+import os, sys, argparse
 import datetime as dt
 import threading
 from functools import wraps
@@ -9,10 +9,11 @@ def _caffeinate():
 def caffeinate(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
-        thrd = threading.Thread(target = _caffeinate, args = ())
-        # 'service' thread. does not stop process from terminating.
-        thrd.daemon = True
-        thrd.start()
+        if sys.platform == 'darwin':
+            thrd = threading.Thread(target = _caffeinate, args = ())
+            # 'service' thread. does not stop process from terminating.
+            thrd.daemon = True
+            thrd.start()
         fn(*args, **kwargs)
     return wrapper
 

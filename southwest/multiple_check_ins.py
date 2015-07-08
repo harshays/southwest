@@ -27,7 +27,7 @@ class MultipleSouthwestCheckIns(object):
     def _parse_file(self):
         try:
             with open(self.filename, 'r+') as f:
-                self.users_csv = list(csv.reader(f, skipinitialspace = True))[1:]
+                self.users_csv = list(csv.reader(f, skipinitialspace = True))
 
             self.users = map(lambda user: SouthwestCheckIn(*user), self.users_csv)
 
