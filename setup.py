@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='southwest',
     version='0.2',
     description='Schedule southwest check in(s)',
-    url='http://github.com/harshays',
+    url='http://github.com/harshays/southwest',
     author='Harshay',
     author_email='harshay.rshah@gmail.com',
     license='MIT',
