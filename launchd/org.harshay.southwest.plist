@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>org.harshay.southwest</string>
+
+        <key>ProgramArguments</key>
+        <array>
+            <string>/usr/local/bin/python</string>
+            <string>/Users/harshay/code/github/southwest/schedule.py</string>
+            <string>/Users/harshay/code/github/southwest/config/sample_config.json</string>
+        </array>
+
+        <key>StartCalendarInterval</key>
+        <dict>
+            <key>Month</key>
+            <integer>12</integer>
+
+            <key>Day</key>
+            <integer>12</integer>
+
+            <key>Hour</key>
+            <integer>12</integer>
+
+            <key>Minute</key>
+            <integer>12</integer>
+        </dict>
+
+        <key>StandardOutPath</key>
+        <string>/Users/harshay/code/github/southwest/log/out.log</string>
+
+        <key>StandardErrorPath</key>
+        <string>/Users/harshay/code/github/southwest/log/error.log</string>
+    </dict>
+</plist>
