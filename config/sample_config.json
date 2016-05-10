@@ -1,0 +1,8 @@
+{
+	"schedule_config_path": "/Users/harshay/code/github/southwest/config/sample_schedule.json",
+	
+	"logging": {
+		"out": "/Users/harshay/code/github/southwest/log/out.log",
+		"error": "/Users/harshay/code/github/southwest/log/error.log"
+	}
+}

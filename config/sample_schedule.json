@@ -1,0 +1,23 @@
+{
+	"notify_via_email": true,
+
+	"users": [
+		{
+			"fname": "Jane",
+			"lname": "Doe",
+			"code": "ABCDEF",
+			"time": "13:10",
+			"date": "2/2/2016",
+			"email": "jane.doe@gmail.com"
+		},
+
+		{
+			"fname": "John",
+			"lname": "Doe",
+			"code": "ABCAYZ",
+			"time": "13:10",
+			"date": "2/2/2016",
+			"email": "john.doe@gmail.com"
+		}		
+	]
+}
