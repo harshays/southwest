@@ -1,18 +1,20 @@
+import re
+import time
 import datetime as dt
 import selenium
 import selenium.webdriver.common
-import time
-import re
+
 
 class SouthwestCheckIn(object):
     """
-        Southwest Check In utility
+        Southwest Check In class
 
-        @params fname - first name
-        @params lname - last name
-        @params code - southwest check in code
-        @params date - mm/dd/yyyy format required (or 'today')
-        @params time - 24 hour format required (or 'now')
+        parameters:
+            fname - first name
+            lname - last name
+            code - southwest check in code
+            date - mm/dd/yyyy format required (or 'today')
+            time - 24 hour format required (or 'now')
     """
 
     def __init__(self, fname, lname, code, date, time, driver_name = 'Firefox'):
@@ -44,26 +46,21 @@ class SouthwestCheckIn(object):
             print 'install firefox driver and try again'
             exit(0)
 
-        # get elements on web page
         code_elem = self.driver.find_element_by_id('confirmationNumber')
         fname_elem = self.driver.find_element_by_id('firstName')
         lname_elem = self.driver.find_element_by_id('lastName')
         submit_elem = self.driver.find_element_by_id('submitButton')
 
-        # fill forms with user information
         code_elem.send_keys(self.code)
         fname_elem.send_keys(self.fname)
         lname_elem.send_keys(self.lname)
 
-        # submit information and wait
         submit_elem.click()
         time.sleep(1)
 
-        # if user details were successful
         try:
             confirm_elem = self.driver.find_element_by_id('printDocumentsButton')
             confirm_elem.click()
-            # TODO: processing post check in
 
         except selenium.common.exceptions.NoSuchElementException:
             print "{}'s details are incorrect.".format(self.name),\

@@ -1,7 +1,7 @@
 import sched
 import csv
-from southwest import SouthwestCheckIn
 import time
+from southwest import SouthwestCheckIn
 
 class MultipleSouthwestCheckIns(object):
     """
